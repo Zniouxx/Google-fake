@@ -1,63 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Clone</title>
-  <style>
-    /* Reset and basic styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background-color: #fff; color: #202124; display: flex; flex-direction: column; min-height: 100vh; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams Clone</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+  }
 
-    /* Center content */
-    .main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  /* Sidebar */
+  .sidebar {
+    width: 80px;
+    background-color: #6264A7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+  }
+  .sidebar img {
+    width: 40px;
+    margin: 15px 0;
+    cursor: pointer;
+  }
 
-    /* Logo */
-    .logo img { width: 272px; margin-bottom: 20px; }
+  /* Channels / List */
+  .channels {
+    width: 200px;
+    background-color: #201F24;
+    color: #fff;
+    padding: 10px;
+  }
+  .channels h3 {
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  .channels div {
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .channels div:hover {
+    background-color: #3b3a45;
+  }
 
-    /* Search bar */
-    .search-box { display: flex; width: 560px; max-width: 90%; border: 1px solid #dfe1e5; border-radius: 24px; padding: 5px 10px; box-shadow: 0 1px 6px rgba(32,33,36,.28); }
-    .search-box input { flex: 1; border: none; outline: none; font-size: 16px; padding: 10px; }
-    .search-box button { border: none; background: #f8f9fa; padding: 0 16px; margin-left: 6px; font-size: 14px; border-radius: 4px; cursor: pointer; }
-    .search-box button:hover { background: #f1f3f4; }
-
-    /* Buttons container */
-    .buttons { margin-top: 20px; }
-    .buttons button { background-color: #f8f9fa; border: 1px solid #f8f9fa; padding: 10px 16px; margin: 0 4px; font-size: 14px; cursor: pointer; border-radius: 4px; }
-    .buttons button:hover { border: 1px solid #c6c6c6; }
-
-    /* Footer */
-    footer { text-align: center; padding: 12px 0; font-size: 14px; color: #70757a; border-top: 1px solid #e4e4e4; }
-    footer a { color: #70757a; text-decoration: none; margin: 0 8px; }
-    footer a:hover { text-decoration: underline; }
-  </style>
+  /* Main chat area */
+  .main {
+    flex: 1;
+    background-color: #f3f2f1;
+    display: flex;
+    flex-direction: column;
+  }
+  .top-bar {
+    height: 60px;
+    background-color: #6264A7;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 18px;
+  }
+  .chat {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .message {
+    background-color: #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    max-width: 60%;
+  }
+  .input-bar {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #eee;
+  }
+  .input-bar input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  .input-bar button {
+    margin-left: 10px;
+    padding: 10px 16px;
+    border: none;
+    background-color: #6264A7;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
 
-  <div class="main">
-    <div class="logo">
-      <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
-    </div>
-
-    <div class="search-box">
-      <input type="text" placeholder="Search Google or type a URL">
-      <button>Search</button>
-    </div>
-
-    <div class="buttons">
-      <button>Google Search</button>
-      <button>I'm Feeling Lucky</button>
-    </div>
+  <!-- Left Sidebar -->
+  <div class="sidebar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_Office_Teams_%282019%E2%80%93present%29.svg" alt="Teams Logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Icon">
   </div>
 
-  <footer>
-    <a href="#">Advertising</a>
-    <a href="#">Business</a>
-    <a href="#">About</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Settings</a>
-  </footer>
+  <!-- Channels -->
+  <div class="channels">
+    <h3>Teams</h3>
+    <div>General</div>
+    <div>Project Alpha</div>
+    <div>Random</div>
+  </div>
+
+  <!-- Main Chat -->
+  <div class="main">
+    <div class="top-bar">General</div>
+    <div class="chat">
+      <div class="message">Hi! Welcome to your Team.</div>
+      <div class="message">This is a Teams clone layout.</div>
+    </div>
+    <div class="input-bar">
+      <input type="text" placeholder="Type a message...">
+      <button>Send</button>
+    </div>
+  </div>
 
 </body>
 </html>
