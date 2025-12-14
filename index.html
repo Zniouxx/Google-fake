@@ -2,131 +2,108 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Google Login (Demo)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teams Clone</title>
+
 <style>
   body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    background: #fff;
     display: flex;
-    height: 100vh;
-  }
-
-  /* Sidebar */
-  .sidebar {
-    width: 80px;
-    background-color: #6264A7;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top: 10px;
-  }
-  .sidebar img {
-    width: 40px;
-    margin: 15px 0;
-    cursor: pointer;
+    height: 100vh;
+    margin: 0;
   }
 
-  /* Channels / List */
-  .channels {
-    width: 200px;
-    background-color: #201F24;
-    color: #fff;
-    padding: 10px;
+  .card {
+    width: 360px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
   }
-  .channels h3 {
+
+  .logo {
+    width: 75px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
     font-weight: normal;
-    margin-bottom: 10px;
+    margin: 0;
   }
-  .channels div {
-    padding: 8px;
-    margin: 4px 0;
+
+  p {
+    color: #5f6368;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 24px;
+    font-size: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+  }
+
+  .note {
+    font-size: 12px;
+    color: red;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+  }
+
+  .btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 22px;
     border-radius: 4px;
     cursor: pointer;
-  }
-  .channels div:hover {
-    background-color: #3b3a45;
+    font-size: 14px;
   }
 
-  /* Main chat area */
-  .main {
-    flex: 1;
-    background-color: #f3f2f1;
-    display: flex;
-    flex-direction: column;
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
-  .top-bar {
-    height: 60px;
-    background-color: #6264A7;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 18px;
-  }
-  .chat {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  .message {
-    background-color: #fff;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    max-width: 60%;
-  }
-  .input-bar {
-    display: flex;
-    padding: 10px 20px;
-    background-color: #eee;
-  }
-  .input-bar input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    outline: none;
-  }
-  .input-bar button {
-    margin-left: 10px;
-    padding: 10px 16px;
-    border: none;
-    background-color: #6264A7;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
+
+  .link {
+    color: #1a73e8;
+    font-size: 14px;
+    text-decoration: none;
+    align-self: center;
   }
 </style>
 </head>
+
 <body>
 
-  <!-- Left Sidebar -->
-  <div class="sidebar">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_Office_Teams_%282019%E2%80%93present%29.svg" alt="Teams Logo">
-    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Icon">
+<div class="card">
+  <img class="logo" src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png">
+  <h1>Sign in</h1>
+  <p>Use your Google Account</p>
+
+  <input type="email" placeholder="Email or phone" disabled>
+
+  <div class="note">
+    Demo page — not Google, no data is collected
   </div>
 
-  <!-- Channels -->
-  <div class="channels">
-    <h3>Teams</h3>
-    <div>General</div>
-    <div>Project Alpha</div>
-    <div>Random</div>
+  <div class="buttons">
+    <a class="link" href="#">Create account</a>
+    <button class="btn" disabled>Next</button>
   </div>
-
-  <!-- Main Chat -->
-  <div class="main">
-    <div class="top-bar">General</div>
-    <div class="chat">
-      <div class="message">Hi! Welcome to your Team.</div>
-      <div class="message">This is a Teams clone layout.</div>
-    </div>
-    <div class="input-bar">
-      <input type="text" placeholder="Type a message...">
-      <button>Send</button>
-    </div>
-  </div>
+</div>
 
 </body>
 </html>
